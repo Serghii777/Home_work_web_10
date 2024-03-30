@@ -1,15 +1,15 @@
 import json
 from bson.objectid import ObjectId
-
 from pymongo import MongoClient
 
-client = MongoClient("mongodb://localhost")
+uri = "mongodb+srv://user19:456123@clusterdbgoit.xlgrzju.mongodb.net/work10?retryWrites=true&w=majority"
 
-db = client.work10
+client = MongoClient(uri)
+
+db = client["work10"]
 
 with open('quotes.json', 'r', encoding='utf-8') as fd:
     quotes = json.load(fd)
-
 
 for quote in quotes:
     author = db.authors.find_one({
@@ -17,3 +17,4 @@ for quote in quotes:
         'tags': quote['tags'],
         'author': ObjectId(author['_id'])
     })
+        
