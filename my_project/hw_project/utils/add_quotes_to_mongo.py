@@ -1,10 +1,12 @@
+import certifi
 import json
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 
+
 uri = "mongodb+srv://user19:456123@clusterdbgoit.xlgrzju.mongodb.net/work10?retryWrites=true&w=majority"
 
-client = MongoClient(uri)
+client = MongoClient(uri, ssl=True, tlsCAFile=certifi.where())
 
 db = client["work10"]
 
@@ -17,4 +19,5 @@ for quote in quotes:
         'tags': quote['tags'],
         'author': ObjectId(author['_id'])
     })
+        
         

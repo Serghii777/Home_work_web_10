@@ -60,3 +60,30 @@ ul.pager {
     color: #333333;
     cursor: not-allowed;
 }
+.author-description {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+h3, .h3 {
+    font-size: 28px;
+}
+b, strong {
+    font-weight: bold;
+}
+.author-details {
+    width: 80%;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    line-height: 1.1;
+    color: inherit;
+}
+h3, .h3 {
+    font-size: 28px;
+}
