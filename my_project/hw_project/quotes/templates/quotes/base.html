@@ -32,8 +32,11 @@
                 </p>
             </div>
         </div>
-
+        {% block top_ten_tags %}
+        {% include 'quotes/top_ten_tags.html' %}
+        {% endblock %}
         {% block content %} {% endblock %}
     </div>    
 </body>
 </html>
+

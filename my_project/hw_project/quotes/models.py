@@ -11,10 +11,17 @@ class Author(models.Model):
     
     def __str__(self):
         return f"{self.name}"
+    
+class Quote(models.Model):
+    quote = models.TextField()
+
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, default=None, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 class Tag(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    quotes = models.ManyToManyField(Quote, related_name='tags')  
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['user', 'name'], name='tag of username')
@@ -23,10 +30,5 @@ class Tag(models.Model):
         return f"{self.name}"
 
 
-class Quote(models.Model):
-    quote = models.TextField()
-    tags = models.ManyToManyField(Tag)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, default=None, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
 
 
